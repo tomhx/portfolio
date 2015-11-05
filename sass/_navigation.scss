@@ -1,14 +1,18 @@
 ul.menu {
+	display: flex;
+	flex-wrap: none;
 	margin: 0;
 	padding: 0;
+	width: 100%;
+	background: grey;
+	justify-content: flex-end;
 	li {
-		display: inline;
 		margin-right: 10px;
+		list-style: none;
 		a {
-			color: #333;
-			padding: 10px;
-			background: #333;
 			color: white;
+			padding: 10px;
+			background: red;
 		}
 	}
 }
