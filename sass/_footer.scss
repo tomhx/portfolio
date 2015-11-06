@@ -1,3 +1,69 @@
 footer {
-	clear: both;
+	background: black;
+}
+
+p.credits {
+	background: black;
+	padding: 0px 20px;
+}
+
+div.footermain {
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 50px;
+	padding-bottom: 10px;
+	background: black;
+	h4 {
+		text-transform: uppercase;
+		text-align: left;
+		color: white;
+	}
+	& > * {
+		width: calc(33.33% - 40px);
+		margin: 0px 20px;
+	}
+}
+
+div.footmid {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	text-align: left;
+	color: white;
+	i {
+		margin: 10px;
+	}
+	div.insidefootmid {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		padding-top: 50px;
+	}
+
+}
+
+.wpcf7 {
+	text-align: center;
+	background: black;
+	p {
+		font-size: 1rem;
+	}
+}
+
+.wpcf7 input, .wpcf7 textarea {
+	background: black;
+	border: 1px solid white;
+	margin: 5px 0px;	
+}
+
+.wpcf7 textarea {
+	height: 50px;
+}
+
+.wpcf7-submit {
+}
+
+.wpcf7 p {
+	text-align: left;
+	margin: 10px 0px;
 }

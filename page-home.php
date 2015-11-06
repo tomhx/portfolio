@@ -3,14 +3,22 @@
 Template Name: Home 
 -->
 
-<?php get_header(); ?>
+
 
 <div class="main">
+
 	<div class="welcome">
 
-		<h1><?php the_field('the_hello'); ?></h1>
+  <?php get_header(); ?>
 
-	</div> <!-- welcome -->
+    <div class="greeting">
+
+		  <h1><?php the_field('the_hello'); ?></h1>
+
+    </div>
+
+  </div> <!-- welcome -->
+	
 	
 	<section class="about">
 		<div class="wrapper">
@@ -42,16 +50,18 @@ Template Name: Home
   		<p><?php the_field('services_paragraph'); ?></p>
   	</section>
   	
-  	<section class="servicesmain">
-
-        <?php while(has_sub_field('service_skill')): ?>
-        <div class="serviceskill">
-          <i class="fa fa-<?php the_sub_field('service_icon');?>"></i>
-    			<h4 class="servicetitle"><?php the_sub_field('service_title'); ?></h4>
-    			<p><?php the_sub_field('service_detail'); ?></p>
-         </div>
-        <?php endwhile; ?>
-
+  	<section class="smain">
+      <div class="wrapper">
+        <div class="servicesmain">
+          <?php while(has_sub_field('service_skill')): ?>
+          <div class="serviceskill">
+            <i class="fa fa-<?php the_sub_field('service_icon');?>"></i>
+      			<h4 class="servicetitle"><?php the_sub_field('service_title'); ?></h4>
+      			<p><?php the_sub_field('service_detail'); ?></p>
+           </div>
+          <?php endwhile; ?>
+        </div>
+      </div>
     </section>
 
   	<section class="portfolio">
@@ -99,18 +109,22 @@ Template Name: Home
   		  <h2><?php the_field('process_headline'); ?></h2>
   		  <p class="processtag"><?php the_field('process_tagline'); ?></p>
       </div>
-  		
+
+  		<div class="processgroup">
+
         <?php while(has_sub_field('process_plan')): ?>
-        <div class="processgroup">
-        <div class="proleft">
-          <i class="fa fa-<?php the_sub_field('process_image');?>"></i>
-        </div>
-        <div class="proright">
-  			 <h3><?php the_sub_field('process_title'); ?></h3>
-  			 <p><?php the_sub_field('process_description'); ?></p>
-        </div>
-        </div>
+          <div class="insidegroup">
+            <div class="proleft">
+              <i class="fa fa-<?php the_sub_field('process_image');?>"></i>
+            </div>
+
+            <div class="proright">
+      			 <h3><?php the_sub_field('process_title'); ?></h3>
+      			 <p><?php the_sub_field('process_description'); ?></p>
+            </div>
+          </div>
   		  <?php endwhile; ?>
+      </div>
       
 
   	</section>
@@ -118,3 +132,10 @@ Template Name: Home
 </div> <!-- /.main -->
 
 <?php get_footer(); ?>
+
+<!-- CREDITS -->
+
+<!-- Hero image by Negative Space at Unsplash.com -->
+
+<!-- VIDEO BY CHRISTOPH PANTEL. -->
+<!-- CONTACT@MAZWAI.COM -->

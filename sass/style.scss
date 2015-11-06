@@ -26,13 +26,17 @@ Default Styling
 
 // Header image from Alejandro Escamilla photography
 
+// Color: #2992ff 
+
 $main: #B22222;
+$highlight: #2992ff;
 
 html {
 	font-size: 62.5%;
 }
 
-$titlefont: 'Oswald', sans-serif;
+$hellofont: 'Oswald', sans-serif;
+$titlefont: 'Roboto', sans-serif;
 $bodyfont:'Open Sans', san-serif;
 
 img {
@@ -49,11 +53,17 @@ h1, h2, h3, p, ul {
 }
 
 h1 {
+	font-family: $hellofont;
+	color: white;
 	font-size: 8rem;
 }
 
 h2 {
-	font-size: 6rem;
+	font-family: $titlefont;
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+	font-weight: bold;
+	font-size: 3rem;
 }
 
 h3 {
@@ -61,16 +71,20 @@ h3 {
 }
 
 h4 {
-	font-size: 2.5rem;
+	font-size: 1.5rem;
+	font-family: $titlefont;
+	letter-spacing: 1px;
 }
 
 p {
-	font-size: 2rem;
+	font-size: 1.5rem;
 	font-family: $bodyfont;
+	color: #cccccc;
+	font-weight: lighter;
 }
 
 .wrapper {
-	max-width: 900px;
+	max-width: 1200px;
 	margin: 0 auto;
 }
 
@@ -85,9 +99,12 @@ p {
 }
 
 div.welcome {
-	background: url(images/work1.jpg) no-repeat;
+	background: url(images/hero2.jpeg) no-repeat;
 	background-size: cover;
 	height: 100vh;
+}
+
+div.greeting {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -101,12 +118,16 @@ section.about {
 	display: flex;
 	flex-wrap: wrap;
 	text-align: center;
+	h2 {
+		margin-bottom: 30px;
+	}
 }
 
 section.me {
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row-reverse;
+	background: black;
 	& > * {
 		width: 50%;
 	}
@@ -117,6 +138,34 @@ section.me {
 	div.specialties {
 		padding: 100px;
 	}
+	h2 {
+		margin-bottom: 30px;
+		color: white;
+	}
+	h4 {
+		color: white;
+	}
+	div.power {
+		height: 5px;
+		border-radius: 2px;
+		background: #2992ff; /* Old browsers */
+		background: -moz-linear-gradient(left,  #2992ff 0%, #2989d8 30%, #f4fbff 92%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,#2992ff), color-stop(30%,#2989d8), color-stop(92%,#f4fbff)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(left,  #2992ff 0%,#2989d8 30%,#f4fbff 92%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(left,  #2992ff 0%,#2989d8 30%,#f4fbff 92%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(left,  #2992ff 0%,#2989d8 30%,#f4fbff 92%); /* IE10+ */
+		background: linear-gradient(to right,  #2992ff 0%,#2989d8 30%,#f4fbff 92%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2992ff', endColorstr='#f4fbff',GradientType=1 ); /* IE6-9 */
+	}
+	div.powerone {
+		width: 70%;
+	}
+	div.powertwo {
+		width: 90%;
+	}
+	div.powerthree {
+		width: 85%;
+	}
 }
 
 section.services {
@@ -125,9 +174,12 @@ section.services {
 	text-align: center;
 	justify-content: center;
 	padding: 100px;
+	h2 {
+		margin-bottom: 30px;
+	}
 }
 
-section.servicesmain {
+div.servicesmain {
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
@@ -186,9 +238,10 @@ div.featured {
 		display: flex;
 		flex-wrap: wrap;
 		p {
+			color: black;
 			padding: 4px 10px;
 			margin: 10px;
-			border: 1px solid black;
+			border: 1px solid $highlight;
 		}
 	}
 }
@@ -218,19 +271,27 @@ section.process {
 	}
 	div.processgroup {
 		display: flex;
-		flex-wrap: wrap;	
+		flex-wrap: wrap;
+		margin-bottom: 100px;	
 		i {
 			font-size: 5rem;
 			padding: 0px 20px;
 		}
-		div.proleft {
-			width: 10%;
+		div.insidegroup {
+			margin-bottom: 50px;
+			display: flex;
+			width: 100%;
+			div.proleft {
+				width: 10%;
 		}
-		div.proright {
-			width: 90%;
+			div.proright {
+				width: 90%;
+		}
 		}
 	}
 }
+
+
 
 
 

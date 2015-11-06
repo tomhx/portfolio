@@ -19,12 +19,11 @@
 <body <?php body_class(); ?>>
 
 <header>
-  <div class="container">
-
+  <div class="wrapper">
     <?php wp_nav_menu( array(
       'container' => false,
       'theme_location' => 'primary'
     )); ?>
-  </div> <!-- /.container -->
+  </div>
 </header><!--/.header-->
 
