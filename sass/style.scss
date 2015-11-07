@@ -68,6 +68,7 @@ h2 {
 
 h3 {
 	font-size: 4rem;
+	font-family: $titlefont;
 }
 
 h4 {
@@ -84,14 +85,8 @@ p {
 }
 
 .wrapper {
-	max-width: 1200px;
+	max-width: 90%;
 	margin: 0 auto;
-}
-
-.content {
-	float: left;
-	width: 65%;
-	margin-right: 5%;
 }
 
 .full {
@@ -208,35 +203,47 @@ section.portfolio {
 	flex-wrap: wrap;
 	h2 {
 		margin: 0 auto;
-		padding-bottom: 50px;
+		padding: 100px;
 	}
 	a {
 		text-decoration: none;
 		color: black;
+		width: 100%;
 	}
 }
 
 div.featured {
 	display: flex;
 	flex-wrap:wrap;
-	padding: 50px;
+	margin-bottom: 50px;
 	& > * {
 		flex: 1 0 50%;
 	}
 	div.leftp {
-		margin: 0 auto;
-		text-align: center;
-		img {
-			width: 100%;
-			height: 100%;
-		}
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 	div.rightp {
-		padding: 50px 30px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		padding: 0px 30px;
+		padding-top: 20px;
+		h2 {
+			padding: 0px 30px;
+			margin-bottom: 20px;
+			text-align: center;
+		}
+		h4 {
+			text-align: left;
+		}
 	}
 	div.sublang {
 		display: flex;
 		flex-wrap: wrap;
+		flex-direction: row;
 		p {
 			color: black;
 			padding: 4px 10px;
@@ -244,10 +251,6 @@ div.featured {
 			border: 1px solid $highlight;
 		}
 	}
-}
-
-div.featured:nth-child(even) {
-	flex-direction: row-reverse;
 }
 
 a.featuredLink:nth-child(even) div.featured {
@@ -272,10 +275,10 @@ section.process {
 	div.processgroup {
 		display: flex;
 		flex-wrap: wrap;
-		margin-bottom: 100px;	
+		margin-bottom: 50px;	
 		i {
-			font-size: 5rem;
-			padding: 0px 20px;
+			font-size: 2rem;
+			padding: 5px 20px;
 		}
 		div.insidegroup {
 			margin-bottom: 50px;
@@ -286,6 +289,10 @@ section.process {
 		}
 			div.proright {
 				width: 90%;
+				h3 {
+					font-size: 2.5rem;
+					margin-bottom: 10px;
+				}
 		}
 		}
 	}

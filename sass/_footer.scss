@@ -5,6 +5,7 @@ footer {
 p.credits {
 	background: black;
 	padding: 0px 20px;
+	font-size: 1rem;
 }
 
 div.footermain {
@@ -15,7 +16,7 @@ div.footermain {
 	background: black;
 	h4 {
 		text-transform: uppercase;
-		text-align: left;
+		text-align: center;
 		color: white;
 	}
 	& > * {
@@ -28,7 +29,7 @@ div.footmid {
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
-	text-align: left;
+	text-align: center;
 	color: white;
 	i {
 		margin: 10px;
@@ -53,6 +54,7 @@ div.footmid {
 .wpcf7 input, .wpcf7 textarea {
 	background: black;
 	border: 1px solid white;
+	width: 90%;
 	margin: 5px 0px;	
 }
 

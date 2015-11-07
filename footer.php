@@ -20,7 +20,9 @@
 					<?php the_field('contact_form'); ?>
 				</div>
 			</div>
-		</div>
+		</div>		
+	</div>
+	<div class="wrapper">
 		<p class="credits">Site created by Tom Haxell 2015</p>
 	</div>
 </footer>
