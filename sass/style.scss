@@ -27,6 +27,7 @@ Default Styling
 // Header image from Alejandro Escamilla photography
 
 // Color: #2992ff 
+// RGB: (41,146,255)
 
 $main: #B22222;
 $highlight: #2992ff;
@@ -101,10 +102,11 @@ div.welcome {
 
 div.greeting {
 	display: flex;
-	align-items: center;
-	justify-content: center;
+	margin: 15% auto 0;
+	position: relative;
 	h1 {
 		color: white;
+		margin: auto;
 	}
 }
 
@@ -298,7 +300,58 @@ section.process {
 	}
 }
 
+section.testimonial {
+	background: url(images/testimonialpic1.jpeg) no-repeat;
+	background-size: cover;
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	padding: 100px;
+	h3 {
+		padding: 50px 50px 20px 50px;
+		color: white;
+		text-align: center;
+	}
+	p {
+		color: white;
+		font-style: italic;
+		text-align: center;
 
+	}
+	
+}
+
+section.testimonial::after {
+	content: "";
+	background: rgba(41,146,255,.6);
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	position: absolute;
+	z-index: 1;
+}
+
+div.statement {
+	z-index: 999;
+}
+
+
+// RESPONSIVE ------------------------
+
+@media all and (max-width: 940px) {	
+
+}
+
+@media all and (max-width: 600px) {
+	
+}
+
+@media all and (max-width: 480px) {
+
+}
 
 
 

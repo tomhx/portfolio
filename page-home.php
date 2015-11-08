@@ -51,7 +51,7 @@ Template Name: Home
   <!-- END OF THE SIDE BY SIDE ME SECTION -->
 
   <!-- START OF THE PORTFOLIO SECTION -->
-  <section class="portfolio">
+  <section class="portfolio" id="featured">
   		<h2>Featured Work</h2>
   		<?php $portfolioQuery = new WP_Query(
   		array(
@@ -77,7 +77,7 @@ Template Name: Home
               <h4>Built Using<h4>
   					  <div class="sublang">
                <?php while(has_sub_field('technology')): ?>
-  						 <p><?php the_sub_field('language'); ?></p>
+  						 <p class="hvr-shutter-out-horizontal'"><?php the_sub_field('language'); ?></p>
                <?php endwhile; ?>
               </div>
 
@@ -94,7 +94,7 @@ Template Name: Home
     <!-- END OF THE PORTFOLIO SECTION -->
 
     <!-- START OF THE SERVICES SECTION -->
-    <section class="services">
+    <section class="services" id="services">
       <h2><?php the_field('services_headline'); ?></h2>
       <p><?php the_field('services_paragraph'); ?></p>
     </section>
@@ -115,7 +115,7 @@ Template Name: Home
     <!-- END OF THE SERVICES SECTION -->
 
     <!-- START OF THE PROCESS SECTION -->
-  	<section class="process">
+  	<section class="process" id="process">
       <div class="topprocess">
   		  <h2><?php the_field('process_headline'); ?></h2>
   		  <p class="processtag"><?php the_field('process_tagline'); ?></p>
@@ -141,6 +141,14 @@ Template Name: Home
       </div>
   	</section>
     <!-- END OF THE PROCESS SECTION -->
+
+    <!-- START OF TESTIMONIAL SECTION -->
+    <section class="testimonial">
+      <div class="statement">
+        <h3><?php the_field('testimonial'); ?></h3>
+        <p>- <?php the_field('testimonial_attribution'); ?></p>
+      </div>
+    </section>
 	
 </div> <!-- /.main -->
 
@@ -151,11 +159,9 @@ Template Name: Home
 
 <!-- Hero image by Negative Space at Unsplash.com 
 
+Testimonial photo by Thomas Lefebvre at Unsplash.com
+
 VIDEO BY CHRISTOPH PANTEL. 
 CONTACT@MAZWAI.COM  -->
 
-
-
-
-
-
+<!-- Favicon by Freepik - www.falticon.com -->

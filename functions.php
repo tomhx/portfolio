@@ -269,3 +269,10 @@ function get_post_parent($post) {
 }
 
 show_admin_bar(true);
+
+add_filter('nav_menu_link_attributes' , 'addClassToLink' , 10 , 1);
+function addClassToLink($attrs){
+  $attrs['class'] = 'hvr-shutter-out-horizontal';
+  return $attrs;
+}
+

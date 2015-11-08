@@ -1,3 +1,7 @@
+$highlight: #2992ff;
+$bodyfont:'Open Sans', san-serif;
+
+
 footer {
 	background: black;
 }
@@ -55,15 +59,16 @@ div.footmid {
 	background: black;
 	border: 1px solid white;
 	width: 90%;
-	margin: 5px 0px;	
+	margin: 5px 0px;
+	color: $highlight;
+	font-family: $bodyfont;
+	letter-spacing: 1px;
 }
 
 .wpcf7 textarea {
 	height: 50px;
 }
 
-.wpcf7-submit {
-}
 
 .wpcf7 p {
 	text-align: left;

@@ -1,4 +1,4 @@
-<footer>
+<footer id="contact">
 	<div class="wrapper">
 		<div class="footermain">
 			<div class="footleft">

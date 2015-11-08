@@ -11,12 +11,14 @@
   <?php // Load our CSS ?>
   <link rel="stylesheet" type="text/css" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <?php wp_head(); ?>
 </head>
 
 
 <body <?php body_class(); ?>>
+<?php include_once("analyticstracking.php") ?>
 
 <header>
   <div class="wrapper">
