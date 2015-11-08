@@ -98,15 +98,29 @@ div.welcome {
 	background: url(images/hero2.jpeg) no-repeat;
 	background-size: cover;
 	height: 100vh;
+	position: relative;
+}
+
+div.welcome::after {
+	background: rgba(41,146,255,.6);
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 99;
 }
 
 div.greeting {
 	display: flex;
 	margin: 15% auto 0;
 	position: relative;
+	z-index: 999;
 	h1 {
 		color: white;
 		margin: auto;
+		text-shadow: 0 0 1px black;
 	}
 }
 
@@ -170,7 +184,7 @@ section.services {
 	flex-wrap: wrap;
 	text-align: center;
 	justify-content: center;
-	padding: 100px;
+	padding: 0 100px 100px 100px;
 	h2 {
 		margin-bottom: 30px;
 	}
@@ -342,7 +356,21 @@ div.statement {
 // RESPONSIVE ------------------------
 
 @media all and (max-width: 940px) {	
+	div.greeting {
+		margin: 20% auto 0;
+	}
+}
 
+@media all and (max-width: 700px) {
+	section.me {
+		flex-direction: column;
+		& > * {
+		width: 100%;
+		}
+		div.headshot {
+			
+		}
+	}
 }
 
 @media all and (max-width: 600px) {

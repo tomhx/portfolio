@@ -1,6 +1,8 @@
 
 header {
 	background: rgba(255,255,255,.3);
+  position: relative;
+  z-index: 999;
 }
 
 
@@ -12,6 +14,8 @@ ul.menu {
 	padding: 0;
 	width: 100%;
 	justify-content: flex-end;
+  position: relative;
+  z-index: 999;
 	li {
 		margin-right: 10px;
 		list-style: none;
@@ -23,6 +27,7 @@ ul.menu {
 			font-family: 'Open Sans', sans-serif;
 			font-weight: lighter;
 			letter-spacing: 1px;
+      text-shadow: 0 0 0.5px black;
 		}
 	}
 }
