@@ -1,7 +1,6 @@
 $highlight: #2992ff;
 $bodyfont:'Open Sans', san-serif;
 
-
 footer {
 	background: black;
 }
@@ -64,6 +63,7 @@ div.footmid {
 	color: $highlight;
 	font-family: $bodyfont;
 	letter-spacing: 1px;
+	@include colors(('color'));
 }
 
 .wpcf7 textarea {

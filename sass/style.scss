@@ -9,18 +9,11 @@
 */
 
 /*
+
 ====================================
 Import Styling
 ====================================
 */
-
-@import 'normalize';
-@import 'typography';
-@import 'navigation';
-@import 'sidebar';
-@import 'comments';
-@import 'footer';
-
 
 // Define our colors in a hash map/hash table/object
 $colors: (
@@ -54,6 +47,16 @@ $colors: (
 		}
 	}
 } 
+
+
+@import 'normalize';
+@import 'typography';
+@import 'navigation';
+@import 'sidebar';
+@import 'comments';
+@import 'footer';
+
+
 
 /*
 ====================================
@@ -127,6 +130,89 @@ p {
 	font-weight: lighter;
 }
 
+// HEADER AREA-----------
+
+header {
+}
+
+ul.menu {
+	display: flex;
+  	flex-direction: row;
+	flex-wrap: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	justify-content: flex-end;
+	background: rgba(white,0.7);
+  	position: absolute;
+  	top: 0;
+  	right: 0;
+  	left: 0;
+  	z-index: 999;
+	li {
+		margin-right: 10px;
+		list-style: none;
+		a {
+			color: white;
+      		padding: 5px 5px;
+			background: none;
+			font-size: 2rem;
+			font-family: 'Open Sans', sans-serif;
+			font-weight: lighter;
+			letter-spacing: 1px;
+      		text-shadow: 0 0 0.5px black;
+		}
+	}
+}
+
+.hvr-shutter-out-horizontal {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  background: none;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+}
+.hvr-shutter-out-horizontal:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #2098d1;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 50%;
+  transform-origin: 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  @include colors(('background'));
+}
+.hvr-shutter-out-horizontal:hover, .hvr-shutter-out-horizontal:focus, .hvr-shutter-out-horizontal:active {
+  color: white;
+}
+.hvr-shutter-out-horizontal:hover:before, .hvr-shutter-out-horizontal:focus:before, .hvr-shutter-out-horizontal:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+// WRAPPER AND MAIN SECTION---------------
+
+
 .wrapper {
 	max-width: 90%;
 	margin: 0 auto;
@@ -139,31 +225,33 @@ p {
 div.welcome {
 	background: url(images/hero2.jpeg) no-repeat;
 	background-size: cover;
+	display: flex;
 	height: 100vh;
 	position: relative;
+	background-blend-mode: darken;
+	@include colors(('background-color'), .6);
 
 	.hvr-shutter-out-horizontal:before {
 		@include colors(('background'));
 	}
 }
 
-div.welcome::after {
-	content: "";
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	z-index: 99;
-	background: rgba($highlight,.6);
-	@include colors(('background'), .6);
-}
+// div.welcome::after {
+// 	content: "";
+// 	position: absolute;
+// 	top: 0;
+// 	bottom: 0;
+// 	left: 0;
+// 	right: 0;
+// 	z-index: 99;
+// 	background: rgba($highlight,.6);
+// 	@include colors(('background'), .6);
+// }
 
 div.greeting {
 	display: flex;
+	margin: auto;
 	flex-direction: column;
-	margin: 15% auto 0;
-	position: relative;
 	z-index: 999;
 	h1, h4 {
 		color: white;
@@ -372,6 +460,7 @@ section.testimonial {
 	justify-content: center;
 	align-items: center;
 	padding: 100px;
+
 	h3 {
 		padding: 50px 50px 20px 50px;
 		color: white;
@@ -416,9 +505,7 @@ div.fa-bars {
 
 
 @media all and (max-width: 940px) {	
-	div.greeting {
-		margin: 20% auto 0;
-	}
+	
 }
 
 @media all and (max-width: 700px) {

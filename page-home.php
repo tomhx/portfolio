@@ -3,14 +3,22 @@
 Template Name: Home 
 -->
 
-
+<?php get_header(); ?>
 
 <div class="main">
 
+  <header>
+    <div class="wrapper">
+      <div class="fa fa-bars fa-2x"></div>
+      <?php wp_nav_menu( array(
+        'container' => false,
+        'theme_location' => 'primary'
+      )); ?>
+    </div>
+  </header><!--/.header-->
+
   <!-- START OF THE WELCOME SECTION -->
 	<div class="welcome">
-
-  <?php get_header(); ?>
 
     <div class="greeting">
 
@@ -66,7 +74,7 @@ Template Name: Home
 
 
   				<a href="<?php the_field('link');?>" class="featuredLink">
-  				<div class="featured wow fadeInUp">
+  				<div class="featured wow fadeIn">
             
             <div class="leftp">
   					 <?php the_post_thumbnail('portsize'); ?>

@@ -18,8 +18,8 @@
 </head>
 
 <?php 
-// Define and select a random color class to add to our body
-// This then will style our page based on our SCSS work in style.scss
+// Define and select a random color class to add to the body
+// This will then be the highlight color for our page based off of the SCSS
 $colors = array( 'one', 'two', 'three', 'four', 'five', 'six' ); 
 $count = count( $colors );
 $num = rand( 0, $count );
@@ -28,13 +28,5 @@ $color = 'color-' . $colors[ $num ];
 <body <?php body_class( $color ); ?>>
 <?php include_once("analyticstracking.php") ?>
 
-<header>
-  <div class="wrapper">
-    <div class="fa fa-bars fa-2x"></div>
-    <?php wp_nav_menu( array(
-      'container' => false,
-      'theme_location' => 'primary'
-    )); ?>
-  </div>
-</header><!--/.header-->
+
 
