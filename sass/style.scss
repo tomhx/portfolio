@@ -1,3 +1,4 @@
+
 /*
 * Theme Name: Tom Haxell Portfolio
 * Theme URI: http://tomhaxell.com
@@ -7,12 +8,53 @@
 * Author URI: http://tomhaxell.com
 */
 
+/*
+====================================
+Import Styling
+====================================
+*/
+
 @import 'normalize';
 @import 'typography';
 @import 'navigation';
 @import 'sidebar';
 @import 'comments';
 @import 'footer';
+
+
+// Define our colors in a hash map/hash table/object
+$colors: (
+ 	one: rgb(41,146,255), 
+ 	two: rgb(39,174,96), 
+ 	three: rgb(142,68,173),
+ 	four: rgb(241,196,15),
+ 	five: rgb(230,126,34),
+ 	six: rgb(26,188,156)
+); 
+
+// Create a mixin for our colors to generate
+@mixin colors( $properties, $alpha:1 ) {
+	@each $color in $colors {
+		$name: nth($color, 1);
+  		$value: nth($color, 2);
+		body.color-#{$name} & {
+		  @each $property in $properties {
+			  #{$property}: rgba( $value, $alpha );
+		  }
+		}
+	}
+} 
+
+@mixin gradient( $direction:top, $too:white, $alpha:1  ) {
+	@each $color in $colors {
+		$name: nth($color, 1);
+  		$value: nth($color, 2);
+		body.color-#{$name} & {
+			background-image: linear-gradient( $direction, rgba( $value, $alpha ), $too );
+		}
+	}
+} 
+
 /*
 ====================================
 Default Styling
@@ -99,10 +141,13 @@ div.welcome {
 	background-size: cover;
 	height: 100vh;
 	position: relative;
+
+	.hvr-shutter-out-horizontal:before {
+		@include colors(('background'));
+	}
 }
 
 div.welcome::after {
-	background: rgba(41,146,255,.6);
 	content: "";
 	position: absolute;
 	top: 0;
@@ -110,17 +155,24 @@ div.welcome::after {
 	left: 0;
 	right: 0;
 	z-index: 99;
+	background: rgba($highlight,.6);
+	@include colors(('background'), .6);
 }
 
 div.greeting {
 	display: flex;
+	flex-direction: column;
 	margin: 15% auto 0;
 	position: relative;
 	z-index: 999;
-	h1 {
+	h1, h4 {
 		color: white;
 		margin: auto;
 		text-shadow: 0 0 1px black;
+	}
+	h4 {
+		margin-top: 20px;	
+		cursor: pointer;
 	}
 }
 
@@ -159,14 +211,8 @@ section.me {
 	div.power {
 		height: 5px;
 		border-radius: 2px;
-		background: #2992ff; /* Old browsers */
-		background: -moz-linear-gradient(left,  #2992ff 0%, #2989d8 30%, #f4fbff 92%); /* FF3.6+ */
-		background: -webkit-gradient(linear, left top, right top, color-stop(0%,#2992ff), color-stop(30%,#2989d8), color-stop(92%,#f4fbff)); /* Chrome,Safari4+ */
-		background: -webkit-linear-gradient(left,  #2992ff 0%,#2989d8 30%,#f4fbff 92%); /* Chrome10+,Safari5.1+ */
-		background: -o-linear-gradient(left,  #2992ff 0%,#2989d8 30%,#f4fbff 92%); /* Opera 11.10+ */
-		background: -ms-linear-gradient(left,  #2992ff 0%,#2989d8 30%,#f4fbff 92%); /* IE10+ */
-		background: linear-gradient(to right,  #2992ff 0%,#2989d8 30%,#f4fbff 92%); /* W3C */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2992ff', endColorstr='#f4fbff',GradientType=1 ); /* IE6-9 */
+		background-image: linear-gradient(right, $highlight);
+		@include gradient( left );
 	}
 	div.powerone {
 		width: 70%;
@@ -264,7 +310,10 @@ div.featured {
 			color: black;
 			padding: 4px 10px;
 			margin: 10px;
-			border: 1px solid $highlight;
+			border-style: solid;
+			border-width: 1px;
+			border-color: $highlight;
+			@include colors(('border-color'));
 		}
 	}
 }
@@ -339,13 +388,14 @@ section.testimonial {
 
 section.testimonial::after {
 	content: "";
-	background: rgba(41,146,255,.6);
+	background: rgba($highlight, .6);
 	top: 0;
 	bottom: 0;
 	right: 0;
 	left: 0;
 	position: absolute;
 	z-index: 1;
+	@include colors(('background'), .6);
 }
 
 div.statement {
@@ -355,6 +405,16 @@ div.statement {
 
 // RESPONSIVE ------------------------
 
+div.fa-bars {
+	display: none;
+}
+
+.flexplicit {
+	display: flex !important;
+	
+}
+
+
 @media all and (max-width: 940px) {	
 	div.greeting {
 		margin: 20% auto 0;
@@ -362,13 +422,78 @@ div.statement {
 }
 
 @media all and (max-width: 700px) {
+	ul.menu {
+		display: none;
+		position: fixed;
+		z-index: 9999999;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background: rgba(white,0.7);
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+
+	}
+
+	div.fa-bars {
+		display: block;
+		text-align: right;
+		padding: 20px;
+		font-size: 4rem;
+		color: white;
+
+	}
+
 	section.me {
 		flex-direction: column;
 		& > * {
 		width: 100%;
 		}
 		div.headshot {
-			
+			height: 600px;
+		}
+	}
+
+	div.servicesmain {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		margin-bottom: 50px;
+		& > * {
+			flex: 1 0 50%;
+		}
+	}
+	div.serviceskill {
+		margin-bottom: 50px;
+	}
+	section.testimonial {
+		padding: 50px;
+		h3 {
+			padding-top: 0px;
+		}
+	}
+	div.footermain {
+		flex-direction: column;
+		& > * {
+			width: 100%;
+		}
+		div.footleft {
+			margin: 0;
+			text-align: center;
+		}
+		div.footmid {
+			margin: 0;
+			margin-top: 50px;
+		}
+		div.footright {
+			margin: 0 auto;
+			margin-top: 50px;
+
+		}
+		.wpcf7-submit {
+			height: 40px;
 		}
 	}
 }
@@ -378,10 +503,88 @@ div.statement {
 }
 
 @media all and (max-width: 480px) {
-
+	div.greeting {
+		margin: 45% auto 0;
+		h1 {
+			font-size: 6rem;
+			text-align: center;
+		}
+	}
+	section.me div.specialties {
+		padding: 50px;
+	}
+	section.portfolio {
+		h2 {
+			padding: 50px;
+		}
+	}
+	div.featured {
+		& > * {
+			flex: 1 0 100%;
+		}
+	}
+	section.services {
+		padding: 0px 50px 50px;
+	}
+	div.servicesmain {
+		& > * {
+			flex: 1 0 100%;
+		}
+	}
+	div.insidegroup {
+		flex-direction: column;
+		text-align: center;
+		div.proleft {
+			margin: 0 auto;
+			margin-bottom: 30px;
+		}
+		div.proright {
+			margin: 0 auto;
+		}
+	}
+	section.process div.processgroup i {
+			font-size: 3rem;
+		}
+	section.testimonial {
+		h3 {
+			padding: 0px;
+			font-size: 2.5rem;
+		}
+	}
 }
 
-
+@media all and (max-width: 350px) {
+	section.about {
+		padding: 30px;
+	}
+	section.me {
+		div.headshot {
+			height: 300px;
+		}
+	}
+	section.portfolio {
+		h2 {
+			text-align: center;
+		}
+	}
+	section.process div.topprocess {
+		margin: 0 20px;
+	}
+	section.testimonial {
+		h3 {
+			padding: 0px;
+			font-size: 2rem;
+		}
+	}
+	.wpcf7 input, .wpcf7 textarea {
+	width: calc(80% - 20px);
+	margin: 5px 10px;
+	height: 40px;
+	}
+	.wpcf7 textarea {
+		height: 80px;
+	}
+}
 
 
 

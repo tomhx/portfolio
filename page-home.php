@@ -15,6 +15,7 @@ Template Name: Home
     <div class="greeting">
 
 		  <h1><?php the_field('the_hello'); ?></h1>
+      <h4 class="wow fadeIn" data-wow-delay="3s">Looking for something new?</h4>
 
     </div>
 
@@ -41,11 +42,11 @@ Template Name: Home
 			<h2><?php the_field('the_work_headline'); ?></h2>
 			<p><?php the_field('graphic_work_paragraph'); ?></p>
 			<h4>Marketing Solutions</h4>
-			<div class="powerone power"></div>
+			<div class="powerone power wow slideInLeft"></div>
 			<h4>Development</h4>
-			<div class="powertwo power"></div>
+			<div class="powertwo power wow slideInLeft"></div>
 			<h4>Wordpress</h4>
-			<div class="powerthree power"></div>
+			<div class="powerthree power wow slideInLeft"></div>
 		</div>
   </section>
   <!-- END OF THE SIDE BY SIDE ME SECTION -->
@@ -65,7 +66,7 @@ Template Name: Home
 
 
   				<a href="<?php the_field('link');?>" class="featuredLink">
-  				<div class="featured">
+  				<div class="featured wow fadeInUp">
             
             <div class="leftp">
   					 <?php the_post_thumbnail('portsize'); ?>

@@ -8,6 +8,7 @@ header {
 
 ul.menu {
 	display: flex;
+  flex-direction: row;
 	flex-wrap: none;
 	margin: 0;
 	margin-bottom: 100px;
