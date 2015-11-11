@@ -17,10 +17,8 @@ Import Styling
 
 // Define our colors in a hash map/hash table/object
 $colors: (
- 	one: rgb(41,146,255), 
- 	two: rgb(39,174,96), 
+ 	one: rgb(41,148,255), 
  	three: rgb(142,68,173),
- 	four: rgb(241,196,15),
  	five: rgb(230,126,34),
  	six: rgb(26,188,156)
 ); 
@@ -83,7 +81,7 @@ html {
 
 $hellofont: 'Oswald', sans-serif;
 $titlefont: 'Roboto', sans-serif;
-$bodyfont:'Open Sans', san-serif;
+$bodyfont:'Open Sans', sans-serif;
 
 img {
 	max-width: 100%;
@@ -99,7 +97,7 @@ h1, h2, h3, p, ul {
 }
 
 h1 {
-	font-family: $hellofont;
+	font-family: 'Roboto', sans-serif;
 	color: white;
 	font-size: 8rem;
 }
@@ -126,7 +124,7 @@ h4 {
 p {
 	font-size: 1.5rem;
 	font-family: $bodyfont;
-	color: #cccccc;
+	color: slategrey;
 	font-weight: lighter;
 }
 
@@ -149,6 +147,7 @@ ul.menu {
   	right: 0;
   	left: 0;
   	z-index: 999;
+  	
 	li {
 		margin-right: 10px;
 		list-style: none;
@@ -163,6 +162,10 @@ ul.menu {
       		text-shadow: 0 0 0.5px black;
 		}
 	}
+}
+
+ul.menu {
+	@include colors(('background'),0.7);
 }
 
 .hvr-shutter-out-horizontal {
@@ -222,47 +225,104 @@ ul.menu {
 	width: 100%;
 }
 
+div.underline {
+	width: 10%;
+	height: 2px;
+	background: $highlight;
+	margin: 5px auto 25px auto;
+	@include colors(('background'));
+
+}
 div.welcome {
-	background: url(images/hero2.jpeg) no-repeat;
+	background: url(images/hero2-min.jpeg) no-repeat;
 	background-size: cover;
 	display: flex;
 	height: 100vh;
 	position: relative;
-	background-blend-mode: darken;
-	@include colors(('background-color'), .6);
+	background-blend-mode: multiply;
+	@include colors(('background-color'), .4);
 
 	.hvr-shutter-out-horizontal:before {
 		@include colors(('background'));
 	}
 }
 
-// div.welcome::after {
-// 	content: "";
-// 	position: absolute;
-// 	top: 0;
-// 	bottom: 0;
-// 	left: 0;
-// 	right: 0;
-// 	z-index: 99;
-// 	background: rgba($highlight,.6);
-// 	@include colors(('background'), .6);
-// }
-
 div.greeting {
 	display: flex;
+	justify-content: center;
 	margin: auto;
+	align-items: center;
 	flex-direction: column;
 	z-index: 999;
-	h1, h4 {
+	h1, {
+		display: inline-block;
 		color: white;
-		margin: auto;
 		text-shadow: 0 0 1px black;
 	}
-	h4 {
-		margin-top: 20px;	
-		cursor: pointer;
+	h2 {
+		color: white;
+		margin-top: 20px;
+		width: 60%;	
+		text-align: center;
+		text-transform: capitalize;
+	}
+	a {
+		text-decoration: none;
+		color: white;
 	}
 }
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.pulse {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+
 
 section.about {
 	padding: 100px;
@@ -270,7 +330,6 @@ section.about {
 	flex-wrap: wrap;
 	text-align: center;
 	h2 {
-		margin-bottom: 30px;
 	}
 }
 
@@ -279,15 +338,15 @@ section.me {
 	flex-wrap: wrap;
 	flex-direction: row-reverse;
 	background: black;
-	& > * {
-		width: 50%;
-	}
 	div.headshot {
-		background: url(images/headshot.jpeg) no-repeat;
+		background: url(images/headshot3.jpg) no-repeat;
 		background-size: cover;
+		width: 50%
 	}
 	div.specialties {
-		padding: 100px;
+		padding: 75px;
+		margin: 0 auto;
+		width: 50%;
 	}
 	h2 {
 		margin-bottom: 30px;
@@ -298,18 +357,29 @@ section.me {
 	}
 	div.power {
 		height: 5px;
+		width: 90%;
 		border-radius: 2px;
 		background-image: linear-gradient(right, $highlight);
 		@include gradient( left );
 	}
-	div.powerone {
-		width: 70%;
+	svg.pie {
+		color: white;
+		fill: white;
+		width: 40%;
+		height: 40%;
+		margin: 0 auto;
+		display: block;
+		@include colors(('fill'));
 	}
-	div.powertwo {
-		width: 90%;
+	div.mandd {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 20px 0 15px 0;	
+		justify-content: space-between;
 	}
-	div.powerthree {
-		width: 85%;
+	h4.wordcenter {
+		text-align: center;
+		margin: 0;
 	}
 }
 
@@ -318,9 +388,9 @@ section.services {
 	flex-wrap: wrap;
 	text-align: center;
 	justify-content: center;
-	padding: 0 100px 100px 100px;
+	flex-direction: column;
+	padding: 100px;
 	h2 {
-		margin-bottom: 30px;
 	}
 }
 
@@ -351,17 +421,23 @@ div.serviceskill {
 section.portfolio {
 	display: flex;
 	flex-wrap: wrap;
+	flex-direction: column;
+	padding: 100px;
 	h2 {
 		margin: 0 auto;
-		padding: 100px;
+		text-align: center;
 	}
+	div.underline {
+	}
+}
+
+div.portexamples {
 	a {
 		text-decoration: none;
 		color: black;
 		width: 100%;
 	}
 }
-
 div.featured {
 	display: flex;
 	flex-wrap:wrap;
@@ -409,22 +485,26 @@ div.featured {
 a.featuredLink:nth-child(even) div.featured {
 	flex-direction: row-reverse;
 }
-section.process {
-	background: black;
-	color: white;
-	display: flex;
-	flex-wrap: wrap;
-	div.topprocess {
+
+div.topprocess {
 		margin: 0 auto;
-		padding: 50px 0;
+		padding: 100px;
+		flex-direction: column;
+		background: black;
 		h2 {
 			text-align: center;
-			margin-bottom: 20px;
+			color: white;
 		}
 		p.processtag {
 		text-align: center;
 		}
 	}
+
+section.process {
+	background: black;
+	color: white;
+	display: flex;
+	flex-wrap: wrap;
 	div.processgroup {
 		display: flex;
 		flex-wrap: wrap;
@@ -434,7 +514,7 @@ section.process {
 			padding: 5px 20px;
 		}
 		div.insidegroup {
-			margin-bottom: 50px;
+			margin-bottom: 30px;
 			display: flex;
 			width: 100%;
 			div.proleft {
@@ -500,7 +580,6 @@ div.fa-bars {
 
 .flexplicit {
 	display: flex !important;
-	
 }
 
 
@@ -509,25 +588,26 @@ div.fa-bars {
 }
 
 @media all and (max-width: 700px) {
+
 	ul.menu {
 		display: none;
-		position: fixed;
 		z-index: 9999999;
+		position: absolute;
 		top: 0;
-		left: 0;
-		height: 100%;
-		width: 100%;
-		background: rgba(white,0.7);
-		flex-direction: column;
-		justify-content: space-between;
-		align-items: center;
-
+		flex-direction: row;
+		justify-content: center;
+		// li a {
+		// 	font-size: 1.5rem;
+		// }
 	}
 
 	div.fa-bars {
 		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
 		text-align: right;
-		padding: 20px;
+		margin: 50px 30px;
 		font-size: 4rem;
 		color: white;
 
@@ -535,11 +615,18 @@ div.fa-bars {
 
 	section.me {
 		flex-direction: column;
-		& > * {
-		width: 100%;
-		}
 		div.headshot {
 			height: 600px;
+			width: 100%;
+		}
+		div.specialties {
+			width: 100%;
+		}
+	}
+
+	div.featured {
+		& > * {
+			flex: 1 0 100%;
 		}
 	}
 
@@ -552,15 +639,18 @@ div.fa-bars {
 			flex: 1 0 50%;
 		}
 	}
+
 	div.serviceskill {
 		margin-bottom: 50px;
 	}
+
 	section.testimonial {
 		padding: 50px;
 		h3 {
 			padding-top: 0px;
 		}
 	}
+
 	div.footermain {
 		flex-direction: column;
 		& > * {
@@ -585,39 +675,53 @@ div.fa-bars {
 	}
 }
 
-@media all and (max-width: 600px) {
-	
+@media all and (max-width: 550px) {
+
+	ul.menu {
+		li a {
+			font-size: 1rem;
+		}
+	}
+	div.greeting{
+		h1 {
+			font-size: 6rem;
+		}
+		h2 {
+			font-size: 2rem;
+		}
+	}
 }
 
 @media all and (max-width: 480px) {
+
 	div.greeting {
-		margin: 45% auto 0;
 		h1 {
 			font-size: 6rem;
 			text-align: center;
 		}
+		h2 {
+			margin: 0;
+		}
 	}
+
 	section.me div.specialties {
 		padding: 50px;
 	}
-	section.portfolio {
-		h2 {
-			padding: 50px;
-		}
+
+	div.underline {
+		width: 40%;
 	}
-	div.featured {
-		& > * {
-			flex: 1 0 100%;
-		}
-	}
+
 	section.services {
 		padding: 0px 50px 50px;
 	}
+
 	div.servicesmain {
 		& > * {
 			flex: 1 0 100%;
 		}
 	}
+
 	div.insidegroup {
 		flex-direction: column;
 		text-align: center;
@@ -629,6 +733,7 @@ div.fa-bars {
 			margin: 0 auto;
 		}
 	}
+
 	section.process div.processgroup i {
 			font-size: 3rem;
 		}
@@ -641,33 +746,87 @@ div.fa-bars {
 }
 
 @media all and (max-width: 350px) {
+
+	div.greeting {
+		h1 {
+			font-size: 4.5rem;
+		}
+		h2 {
+			font-size: 1.75rem;
+			margin-top: 20px;
+		}
+	}
+
+	header{
+		background: $highlight;
+		@include colors(('background'));
+	}
+
+	ul.menu {
+		width: 100%;
+		height: 100vh;
+		flex-direction: column;
+		background: rgba(0,0,0,.7);
+		justify-content: center;
+		align-items: center;
+		z-index: 999999999999;
+		position: relative;
+		@include colors(('background'),0.9);
+	}
+
+	ul.menu li a {
+			font-size: 3rem;
+			padding: 20px;
+	}
 	section.about {
 		padding: 30px;
 	}
+
 	section.me {
 		div.headshot {
 			height: 300px;
 		}
 	}
+
 	section.portfolio {
-		h2 {
-			text-align: center;
-		}
+		display: flex;
+		justify-content: center;
+		margin: 0;
 	}
+	section.portfolio h2 {
+		display: flex;
+		justify-content: center;
+		margin: 0;
+
+	}
+
+	div.topprocess {
+		padding: 50px 20px;
+	}
+
 	section.process div.topprocess {
 		margin: 0 20px;
 	}
+
+	div.topprocess h2{
+		margin: 0;
+		display: flex;
+		justify-content: center;
+	}
+
 	section.testimonial {
 		h3 {
 			padding: 0px;
 			font-size: 2rem;
 		}
 	}
+
 	.wpcf7 input, .wpcf7 textarea {
 	width: calc(80% - 20px);
 	margin: 5px 10px;
 	height: 40px;
 	}
+
 	.wpcf7 textarea {
 		height: 80px;
 	}

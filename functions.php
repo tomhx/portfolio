@@ -268,7 +268,7 @@ function get_post_parent($post) {
 	}
 }
 
-show_admin_bar(true);
+show_admin_bar(false);
 
 add_filter('nav_menu_link_attributes' , 'addClassToLink' , 10 , 1);
 function addClassToLink($attrs){

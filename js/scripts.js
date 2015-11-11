@@ -56,11 +56,9 @@ var red = ('192, 57, 43');
 
 // REFRESH THE PAGE TO GET A NEW COLOR
 
- $('div.greeting h4').on('click', function(){
+ $('div.greeting a').on('click', function(){
     location.reload();
   });
-
-
 
 
 

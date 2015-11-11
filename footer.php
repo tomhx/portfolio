@@ -9,9 +9,9 @@
 			<div class="footmid">
 				<h4>Contact Info</h4>
 					<div class="insidefootmid">
-						<i class="fa fa-phone"> 416.528.3434</i>
-						<i class="fa fa-envelope-o"> contact@tomhaxell.com</i>
-						<i class="fa fa-map-marker"> 6-137 Annette St, Toronto</i>
+						<i class="fa fa-phone"></i><h4>416.528.3434</h4>
+						<i class="fa fa-envelope-o"></i><h4>tom@tomhaxell.com</h4>
+						<i class="fa fa-map-marker"></i><h4>The Junction, Toronto</h4>
 					</div>
 			</div>
 			<div class="footright">
@@ -27,14 +27,7 @@
 	</div>
 </footer>
 
-<script>
-/* Google Analytics! */
- var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]]; // Change UA-XXXXX-X to be your site's ID
- (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
- g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
- s.parentNode.insertBefore(g,s)}(document,"script"));
-</script>
-
+<?php include_once("analyticstracking.php") ?>
 <script src="<?php echo get_template_directory_uri(); ?>/js/wow.min.js"></script>
 <script> new WOW().init();</script>
 
